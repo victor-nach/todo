@@ -1,0 +1,589 @@
+{
+	"info": {
+		"_postman_id": "084fe7d1-576e-4742-8a8a-09668288b1f0",
+		"name": "Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6414812"
+	},
+	"item": [
+		{
+			"name": "Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"sample title 10\",\r\n    \"description\": \"sample description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/todos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Err - empty request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:18:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"error\": \"error validating request: validation errors: title is required; title length must be at least 2 characters\"\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"sample title 10\",\r\n    \"description\": \"sample description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:27:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"b8cd0486-e748-4250-b5e9-44ef9943ed34\",\n        \"title\": \"sample title 10\",\n        \"description\": \"sample description\",\n        \"created_at\": \"2025-02-27T22:27:37.6311422Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/todos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:28:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "924"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"b8cd0486-e748-4250-b5e9-44ef9943ed34\",\n            \"title\": \"sample title 10\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:27:37.631142Z\"\n        },\n        {\n            \"id\": \"07434e19-5a11-41a4-8844-707d311059b3\",\n            \"title\": \"sample title 10\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:27:03.878102Z\"\n        },\n        {\n            \"id\": \"442d0e4f-b73c-4f2b-aac7-5a3ee3b7016b\",\n            \"title\": \"sample title 5\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:25:53.754117Z\"\n        },\n        {\n            \"id\": \"451bbc14-27e5-438f-b54d-548eb4fea656\",\n            \"title\": \"sample title 5\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:24:59.107178Z\"\n        },\n        {\n            \"id\": \"e960bc24-71d3-4831-a39e-112f7eca2408\",\n            \"title\": \"sample title 3\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:24:26.567438Z\"\n        },\n        {\n            \"id\": \"7dc0629a-6c8d-493f-bb39-4ff2491d0ffb\",\n            \"title\": \"sample title\",\n            \"description\": \"sample description\",\n            \"created_at\": \"2025-02-27T22:19:48.022742Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Todo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/todos/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:30:30 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"b8cd0486-e748-4250-b5e9-44ef9943ed34\",\n        \"title\": \"sample title 10\",\n        \"description\": \"sample description\",\n        \"created_at\": \"2025-02-27T22:27:37.631142Z\"\n    }\n}"
+				},
+				{
+					"name": "Err - invalid id type",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:29:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"error\": \"error validating request: invalid id type provided\"\n}"
+				},
+				{
+					"name": "Err - not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:31:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"error\": \"failed to get Todo: todo not found, invalid id provided\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"updated sample title 10\",\r\n    \"description\": \"updated sample description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/todos/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "07434e19-5a11-41a4-8844-707d311059b3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Err - id not found",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"updated sample title 10\",\r\n    \"description\": \"updated sample description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:33:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"error\": \"failed to update Todo: todo not found, invalid id provided\"\n}"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"updated sample title 10\",\r\n    \"description\": \"updated sample description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "07434e19-5a11-41a4-8844-707d311059b3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:33:44 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"07434e19-5a11-41a4-8844-707d311059b3\",\n        \"title\": \"updated sample title 10\",\n        \"description\": \"updated sample title 10\",\n        \"created_at\": \"2025-02-27T22:27:03.878102Z\",\n        \"updated_at\": \"2025-02-27T22:33:44.10342Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/todos/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:31:04 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"success\": true\n    }\n}"
+				},
+				{
+					"name": "Err - id not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todos/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b8cd0486-e748-4250-b5e9-44ef9943ed34"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Feb 2025 22:31:16 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"error\": \"failed to delete Todo: todo not found, invalid id provided\"\n}"
+				}
+			]
+		}
+	]
+}
