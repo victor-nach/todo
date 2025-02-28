@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    container_name: postgres_dep
+    environment:
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: todos
+    ports:
+      - "15432:5432"
